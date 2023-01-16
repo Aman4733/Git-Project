@@ -1,0 +1,11 @@
+How to step the Api
+
+1. Open the (views.py) file in visual code studio.
+2. Open terminal in visual code studio.
+   * Run the views.py file by command (python views.py)
+   * open the local host server (http://localhost:5000)
+3. Open the file table.txt copy the sql code and paste to postgre quary.
+4. Open the (post.html) file in Chrome browser.
+    * Enter the message in the (post.html) file 
+    * like the message if you wish.
+5. Message and likes will save in postgre sql tables.

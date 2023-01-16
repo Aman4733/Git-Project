@@ -1,0 +1,40 @@
+CREATE TABLE MESSAGES(
+   ID INT PRIMARY KEY     NOT NULL,
+   NAME           TEXT    NOT NULL,
+   MESSAGE        CHAR(50),
+   DATE           TEXT    NOT NULL,
+);
+SELECT * FROM public."MESSAGES"
+
+
+
+CREATE TABLE LIKES(
+   ID INT PRIMARY KEY      NOT NULL,
+   NAME           TEXT    NOT NULL,
+   DATE           TEXT    NOT NULL,
+
+);
+SELECT * FROM public."LIKES"
+
+
+CREATE TRIGGER update_trigger ON LIKES
+AFTER UPDATE
+AS
+BEGIN
+SET NOCOUNT ON;
+DECLARE @Id INT
+DECLARE @Name VARCHAR(50)
+SELECT @Id = LIKES.Id       
+FROM LIKES
+IF UPDATE(Id)
+BEGIN
+SET @Id = 'Updated Id'
+END
+IF UPDATE(Name)
+BEGIN
+SET @Name = 'Updated Name'
+END
+INSERT INTO Likes
+VALUES(@Id, @Name)
+END
+GO
